@@ -90,6 +90,13 @@
             font-weight: bold;
             color: #2c5aa0;
             border: 2px dashed #a8c6ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tracking-number:hover {
+            background-color: #e1eeff;
+            transform: translateY(-2px);
         }
         
         .info-grid {
@@ -104,6 +111,11 @@
             padding: 20px;
             border-right: 5px solid #2c5aa0;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
         }
         
         .info-card h3 {
@@ -231,6 +243,60 @@
             border: 1px solid #cce0ff;
         }
         
+        .refund-notice {
+            background-color: #fff8e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            border-right: 5px solid #ff9800;
+            animation: pulse 2s infinite;
+        }
+        
+        .refund-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .refund-icon {
+            color: #ff9800;
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        .refund-title {
+            font-size: 1.4rem;
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .refund-details {
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .refund-timer {
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+            border: 1px dashed #ff9800;
+        }
+        
+        .timer-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        
+        .timer-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
         footer {
             text-align: center;
             margin-top: 30px;
@@ -264,6 +330,44 @@
         .has-document {
             color: #28a745;
             font-weight: bold;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.2);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
+            }
+        }
+        
+        .paid-status {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        
+        .refund-alert {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
     </style>
 </head>
@@ -388,7 +492,7 @@
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">1404/10/05 - 00:10</div>
-                        <div class="timeline-desc">پرداخت هزینه و تایید نهایی</div>
+                        <div class="timeline-desc">پرداخت هزینه و تایید نهایی <span class="refund-alert">عودت وجه در 24 ساعت آینده</span></div>
                     </div>
                     <div class="timeline-line"></div>
                 </div>
@@ -439,6 +543,14 @@
                 <div class="payment-amount">41,200,000 ریال</div>
                 
                 <div class="info-item">
+                    <span class="info-label">وضعیت پرداخت:</span>
+                    <span class="info-value">
+                        <span class="paid-status">پرداخت شده</span>
+                        <span class="refund-alert">عودت وجه در 24 ساعت آینده</span>
+                    </span>
+                </div>
+                
+                <div class="info-item">
                     <span class="info-label">متصدی امور مالی:</span>
                     <span class="info-value">آقای محمد رضا سراوانی</span>
                 </div>
@@ -458,49 +570,19 @@
                     <span class="info-label">تاریخ و زمان پرداخت:</span>
                     <span class="info-value">1404/10/05 - 00:10:22</span>
                 </div>
-                <div class="info-item">
-                    <span class="info-label">وضعیت پرداخت:</span>
-                    <span class="info-value has-document">پرداخت شده</span>
-                </div>
-            </div>
-        </section>
-        
-        <footer>
-            <p>باربری هوایی کارون | خدمات حمل و نقل هوایی حیوانات خانگی و بارهای ویژه</p>
-            <p>تلفن پشتیبانی: ۰۲۱-۸۸۵۶۳۴۷۲ | ایمیل: info@karunair.ir</p>
-            <p>© ۱۴۰۴ - تمامی حقوق برای باربری هوایی کارون محفوظ است.</p>
-        </footer>
-    </div>
-
-    <script>
-        // امکان جستجوی شماره مرسوله (برای توسعه آینده)
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('سایت باربری هوایی کارون بارگذاری شد.');
-            
-            // نمایش تاریخ و زمان فعلی در کنسول
-            const now = new Date();
-            const persianDate = now.toLocaleDateString('fa-IR');
-            const time = now.toLocaleTimeString('fa-IR');
-            console.log(`تاریخ دسترسی: ${persianDate} - ساعت: ${time}`);
-            
-            // امکان کلیک روی شماره مرسوله برای کپی
-            const trackingNumber = document.querySelector('.tracking-number');
-            trackingNumber.addEventListener('click', function() {
-                const textToCopy = this.textContent;
-                navigator.clipboard.writeText(textToCopy).then(function() {
-                    const originalText = trackingNumber.textContent;
-                    trackingNumber.textContent = 'شماره کپی شد!';
-                    trackingNumber.style.backgroundColor = '#e8f7e8';
-                    trackingNumber.style.color = '#28a745';
+                
+                <div class="refund-notice">
+                    <div class="refund-header">
+                        <i class="fas fa-exchange-alt refund-icon"></i>
+                        <h3 class="refund-title">عودت وجه قبلی</h3>
+                    </div>
+                    <div class="refund-details">
+                        <p>مبلغ پرداختی قبلی (41,200,000 ریال) در تاریخ 1404/10/05 - 00:10:22 به حساب شما عودت داده خواهد شد.</p>
+                        <p><strong>علت عودت وجه:</strong> پرداخت مبلغ با کارت متفاوت جهت تسهیل امور مالی</p>
+                        <p><strong>زمان عودت:</strong> حداکثر تا 24 ساعت آینده (تا تاریخ 1404/10/06 - 00:10:22)</p>
+                        <p><strong>روش عودت:</strong> واریز به حساب بانکی مرتبط با شماره کارت ارائه شده</p>
+                    </div>
                     
-                    setTimeout(function() {
-                        trackingNumber.textContent = originalText;
-                        trackingNumber.style.backgroundColor = '#f0f7ff';
-                        trackingNumber.style.color = '#2c5aa0';
-                    }, 2000);
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                    <div class="refund-timer">
+                        <div class="timer-label">عودت وجه تا:</div>
+        
