@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باربری هوایی کارون | رهگیری مرسوله</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #e8f4f8, #f0f7fa);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+        
+        .logo-arabic {
+            color: #d4a017;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .logo-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .tracking-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .tracking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .tracking-title {
+            font-size: 1.8rem;
+            color: #2c5aa0;
+        }
+        
+        .tracking-number {
+            background-color: #f0f7ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            border: 2px dashed #a8c6ff;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .info-card {
+            background-color: #f9fbfd;
+            border-radius: 8px;
+            padding: 20px;
+            border-right: 5px solid #2c5aa0;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.3rem;
+        }
+        
+        .info-item {
+            margin-bottom: 12px;
+            display: flex;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 140px;
+        }
+        
+        .info-value {
+            color: #333;
+            flex-grow: 1;
+        }
+        
+        .status-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .status-title {
+            font-size: 1.8rem;
+            color: #2c5aa0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .status-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #2c5aa0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            margin-left: 40px;
+            padding: 5px 0;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-desc {
+            color: #555;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: 0;
+            width: 2px;
+            background-color: #d0d0d0;
+            z-index: 1;
+        }
+        
+        .financial-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .financial-title {
+            font-size: 1.8rem;
+            color: #2c5aa0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .payment-info {
+            background-color: #f9fbfd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-amount {
+            font-size: 2rem;
+            color: #d4a017;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .card-info {
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid #cce0ff;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .tracking-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text {
+                font-size: 2rem;
+            }
+        }
+        
+        .animal-icon {
+            color: #d4a017;
+            margin-left: 8px;
+        }
+        
+        .has-document {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-text">
+                    <span class="logo-arabic">كارون</span> KARUN AIR
+                </div>
+            </div>
+            <div class="logo-subtitle">باربری هوایی کارون | خدمات حمل و نقل هوایی مطمئن</div>
+        </header>
+        
+        <section class="tracking-section">
+            <div class="tracking-header">
+                <h1 class="tracking-title">اطلاعات مرسوله</h1>
+                <div class="tracking-number">3948493251</div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>اطلاعات فرستنده</h3>
+                    <div class="info-item">
+                        <span class="info-label">نام فرستنده:</span>
+                        <span class="info-value">امیر برات زاده</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">کد ملی:</span>
+                        <span class="info-value">0018797989</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">شماره تماس:</span>
+                        <span class="info-value">09389735425</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">مبدا:</span>
+                        <span class="info-value">استان خوزستان، فرودگاه بین‌المللی شهید سپهبد قاسم سلیمانی</span>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>اطلاعات گیرنده</h3>
+                    <div class="info-item">
+                        <span class="info-label">نام گیرنده:</span>
+                        <span class="info-value">شقایق قیاسی</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">شماره تماس:</span>
+                        <span class="info-value">09120992031</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">مقصد:</span>
+                        <span class="info-value">استان تهران، فرودگاه بین‌المللی مهرآباد</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">آدرس دقیق:</span>
+                        <span class="info-value">انتهای اتوبان همت غرب، شهرک گلستان، میدان ساحل، خیابان شهید جوزانی، خیابان مولوی، ساختمان قائم، پلاک 2، بلوک C1، واحد 22</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">کد پستی:</span>
+                        <span class="info-value">1997854833</span>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>اطلاعات محموله <i class="fas fa-paw animal-icon"></i></h3>
+                    <div class="info-item">
+                        <span class="info-label">نوع محموله:</span>
+                        <span class="info-value">حیوان زنده (سگ)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">نژاد:</span>
+                        <span class="info-value">پامرانین (خرسی)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">گواهی سلامت:</span>
+                        <span class="info-value has-document">دارد</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">شناسنامه:</span>
+                        <span class="info-value has-document">دارد</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">باکس حمل:</span>
+                        <span class="info-value has-document">دارد</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">وزن حیوان:</span>
+                        <span class="info-value">2 کیلو 468 گرم</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">وزن باکس همراه:</span>
+                        <span class="info-value">6 کیلو 680 گرم</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="status-section">
+            <h2 class="status-title">وضعیت مرسوله</h2>
+            <div class="status-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/04 - 14:30</div>
+                        <div class="timeline-desc">ثبت درخواست حمل و صدور بارنامه</div>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/04 - 16:45</div>
+                        <div class="timeline-desc">بررسی مدارک و تایید گواهی سلامت حیوان</div>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/05 - 00:10</div>
+                        <div class="timeline-desc">پرداخت هزینه و تایید نهایی</div>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/05 - 08:00</div>
+                        <div class="timeline-desc">تحویل به فرودگاه مبدا (شهید سپهبد قاسم سلیمانی)</div>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/05 - 11:30 (پیش‌بینی)</div>
+                        <div class="timeline-desc">خروج از فرودگاه مبدا</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background-color: #d0d0d0;"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/05 - 13:15 (پیش‌بینی)</div>
+                        <div class="timeline-desc">ورود به فرودگاه مقصد (مهرآباد)</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background-color: #d0d0d0;"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1404/10/05 - 15:30 (پیش‌بینی)</div>
+                        <div class="timeline-desc">تحویل به گیرنده در آدرس مشخص شده</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="financial-section">
+            <h2 class="financial-title">اطلاعات مالی</h2>
+            
+            <div class="payment-info">
+                <div class="info-item">
+                    <span class="info-label">هزینه باربری:</span>
+                    <span class="info-value"></span>
+                </div>
+                <div class="payment-amount">41,200,000 ریال</div>
+                
+                <div class="info-item">
+                    <span class="info-label">متصدی امور مالی:</span>
+                    <span class="info-value">آقای محمد رضا سراوانی</span>
+                </div>
+                
+                <div class="card-info">
+                    <div class="info-item">
+                        <span class="info-label">شماره کارت بانک سامان:</span>
+                        <span class="info-value">6219-8619-2364-3695</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">به نام:</span>
+                        <span class="info-value">آقای محمد رضا سراوانی</span>
+                    </div>
+                </div>
+                
+                <div class="info-item" style="margin-top: 20px;">
+                    <span class="info-label">تاریخ و زمان پرداخت:</span>
+                    <span class="info-value">1404/10/05 - 00:10:22</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">وضعیت پرداخت:</span>
+                    <span class="info-value has-document">پرداخت شده</span>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>باربری هوایی کارون | خدمات حمل و نقل هوایی حیوانات خانگی و بارهای ویژه</p>
+            <p>تلفن پشتیبانی: ۰۲۱-۸۸۵۶۳۴۷۲ | ایمیل: info@karunair.ir</p>
+            <p>© ۱۴۰۴ - تمامی حقوق برای باربری هوایی کارون محفوظ است.</p>
+        </footer>
+    </div>
+
+    <script>
+        // امکان جستجوی شماره مرسوله (برای توسعه آینده)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('سایت باربری هوایی کارون بارگذاری شد.');
+            
+            // نمایش تاریخ و زمان فعلی در کنسول
+            const now = new Date();
+            const persianDate = now.toLocaleDateString('fa-IR');
+            const time = now.toLocaleTimeString('fa-IR');
+            console.log(`تاریخ دسترسی: ${persianDate} - ساعت: ${time}`);
+            
+            // امکان کلیک روی شماره مرسوله برای کپی
+            const trackingNumber = document.querySelector('.tracking-number');
+            trackingNumber.addEventListener('click', function() {
+                const textToCopy = this.textContent;
+                navigator.clipboard.writeText(textToCopy).then(function() {
+                    const originalText = trackingNumber.textContent;
+                    trackingNumber.textContent = 'شماره کپی شد!';
+                    trackingNumber.style.backgroundColor = '#e8f7e8';
+                    trackingNumber.style.color = '#28a745';
+                    
+                    setTimeout(function() {
+                        trackingNumber.textContent = originalText;
+                        trackingNumber.style.backgroundColor = '#f0f7ff';
+                        trackingNumber.style.color = '#2c5aa0';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
